@@ -27,3 +27,11 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 
 }
+task customFatJar(type: Jar) {
+	manifest {
+		attributes 'Main-Class': 'com.coursecube.springboot.StartMyBootApp'
+	}
+	archiveBaseName = 'all-in-one-jar'
+	from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+	with jar
+}

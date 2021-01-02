@@ -1,3 +1,10 @@
+spring:
+  mvc:
+      view:
+        prefix: /WEB-INF/myjsps/
+        suffix: .jsp
+server:
+    port: 12345
 logging:
     level:
         root: INFO
