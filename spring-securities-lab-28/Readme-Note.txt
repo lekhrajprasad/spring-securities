@@ -23,4 +23,14 @@ http://localhost:12345/editBook
 http://localhost:12345/deleteBook
 http://localhost:12345/placeOrder
 
+Improvements required in Lab28:
+A) Display either login/Register or logout
+B) Display the Links accordning to Role.
+C) Customize Login Page and Error Messages.
+D) Customize Logout Page
+E) Display the Role after the username.
+•Display the following for Authenticated Users
+Home Welcome : sri [ROLE_CUSTOMER] Logout
+•Display the following for Un-Authenticated Users
+Home Login Register
 
