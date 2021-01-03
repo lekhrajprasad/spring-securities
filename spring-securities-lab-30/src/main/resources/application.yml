@@ -1,0 +1,38 @@
+spring:
+  mvc:
+      view:
+        prefix: /WEB-INF/myjsps/
+        suffix: .jsp
+
+  datasource:
+    hikari:
+      connectionTimeout: 20000
+      maximumPoolSize: 5
+    password: password
+    #url: jdbc:h2:file:/home/lekh/mydev/workspace/data/jlcbookpricedb
+    url: jdbc:h2:file:./data/mydb
+    username: sa
+    initialize: false
+  jpa:
+    show-sql: true
+    hibernate.ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+  h2.console.enabled: true
+  application:
+    name: SpringSecurity
+
+server:
+  servlet:
+    context-path: /lpras
+  port: 12345
+
+logging:
+  level:
+    root: INFO
+    com.coursecube: DEBUG
+  pattern:
+    console: '%-5level [%thread]-${PID} %logger{36}  - %msg%n'
+#To see the h2 db console. works only when application is running on server port 8080
+#http://localhost:12345/h2-console
