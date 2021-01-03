@@ -2,10 +2,14 @@ package com.coursecube.springboot;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import org.springframework.web.servlet.view.JstlView;
 
 @SpringBootApplication
 public class WebConfig extends WebSecurityConfigurerAdapter implements WebMvcConfigurer {
@@ -40,6 +44,14 @@ public class WebConfig extends WebSecurityConfigurerAdapter implements WebMvcCon
 					.antMatchers("/placeOrder**").access("hasAnyRole('ROLE_CUSTOMER')")
 					.and()
 					.formLogin()
+					.loginPage("/login")
+					.failureUrl("/login?error")
+					.usernameParameter("myusername")
+					.passwordParameter("mypassword")
+					.and()
+					.logout()
+					.invalidateHttpSession(true)
+					.logoutSuccessUrl("/login?logout")
 					.and()
 					.exceptionHandling().accessDeniedPage("/WEB-INF/myjsps/invalidAccess.jsp");
 		}catch (Exception ex){

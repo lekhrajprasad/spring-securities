@@ -1,0 +1,12 @@
+spring:
+  mvc:
+      view:
+        prefix: /WEB-INF/myjsps/
+        suffix: .jsp
+server:
+    port: 56789
+logging:
+    level:
+        root: INFO
+    pattern:
+        console: '%-5level [%thread]-${PID} %logger{36}  - %msg%n'
